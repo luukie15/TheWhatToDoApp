@@ -61,6 +61,13 @@
         <script type="text/javascript">
             app.initialize();
 
+            var browserEnv = Ext.browser.is;
+    if (browserEnv.WebView && browserEnv.Cordova) {
+        Ext.defer(function () {
+            Ext.device.Splashscreen.hide();
+        }, 250);
+    }
+            
             // // Wait for device API libraries to load
             // document.addEventListener("deviceready", onDeviceReady, false);
 
